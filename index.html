@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Boxes with Radio Buttons</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f5f5f5;
+      flex-direction: column;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 80%;
+      max-width: 600px;
+    }
+
+    .box {
+      background-color: #e0e0e0;
+      padding: 20px;
+      /* border: 1px solid #ccc; */
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .boxThree {
+      background-color: #e0e0e0;
+      /* padding: 20px; */
+      /* border: 1px solid #ccc; */
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+    .boxTwo {
+      background-color: #e0e0e0;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      /* display: flex; */
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+      /* cursor: pointer;
+      position: relative; */
+    }
+
+    .box-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .highlight {
+      background-color: #FF6B82;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .addButton {
+      padding: 8px;
+      cursor: pointer;
+      background-color: #FF6B82;
+      border: none;
+      color: white;
+      border: 2px solid none;
+  border-radius: 5px;
+  padding: 5px;
+      
+    }
+
+    .price {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    .original-price {
+      text-decoration: line-through;
+      font-size: 0.9em;
+      color: #888;
+      margin-top: 5px;
+    }
+
+    .most-popular {
+      font-size: 0.9em;
+      color: white;
+      background-color: #FF6B82;
+      /* padding: 1px; */
+      position: absolute;
+      top: -50%;
+      right: 0;
+      /* bottom: 5; */
+     
+      transform-origin: top right;
+      width: 150px;
+      text-align: center;
+      font-weight: bold;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .footer {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      font-size: 1.2em;
+      font-weight: bold;
+      padding: 3px;
+    }
+
+    .footer .free-delivery {
+      color: green;
+    }
+
+    .footer .total-amount {
+      color: #000;
+    }
+
+    .dropdowns {
+      display: flex;
+    align-items: flex-start;
+    justify-content: start;
+      flex-direction: row;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .dropdowns select {
+      padding: 5px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .bogo-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0; /* Adjust margin for spacing */
+}
+
+.bogo-banner .line {
+  flex: 1;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.bogo-banner .bogo-text {
+  margin: 0 10px; /* Space between text and lines */
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #FF6B82;
+  text-transform: uppercase;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="bogo-banner">
+      <span class="line"></span>
+      <span class="bogo-text">YAY! It’s BOGO</span>
+      <span class="line"></span>
+    </div>
+    
+    <div class="box" onclick="selectBox(this, 'Unit1')">
+      <div>
+        <input type="radio" name="unit" value="Unit1">
+        <label>Unit 1</label>
+        <span class="highlight">10% Off</span>
+      </div>
+      <div class="box-content">
+        <span class="price">$2.40 USD</span>
+        <span class="original-price">$24.00</span>
+      </div>
+    </div>
+
+
+    <!-- background-color: #e0e0e0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative; -->
+   
+    <div class="boxTwo">
+      <div class="boxThree" onclick="selectBox(this, 'Unit2')">
+        <span class="most-popular">MOST POPULAR</span>
+        <div style="padding: 0%;">
+          <input type="radio" name="unit" value="Unit2">
+          <label>Unit 2</label>
+          <span class="highlight">20% Off</span>
+        </div>
+       
+        <div class="box-content">
+          <span class="price">$4.80 USD</span>
+          <span class="original-price">$24.00</span>
+         
+        </div>
+        
+      </div>
+      
+      <div class="dropdowns d-flex">
+        <select name="size">
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+        </select>
+        <select name="color">
+          <option value="red">Red</option>
+          <option value="blue">Blue</option>
+          <option value="green">Green</option>
+        </select>
+      </div>
+    </div>
+    <div class="box" onclick="selectBox(this, 'Unit3')">
+      <div>
+        <input type="radio" name="unit" value="Unit3">
+        <label>Unit 3</label>
+        <span class="highlight">30% Off</span>
+      </div>
+      <div class="box-content">
+        <span class="price">$7.20 USD</span>
+        <span class="original-price">$24.00</span>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span class="free-delivery" style="color: #FF6B82;">Free Delivery</span>
+      <span class="total-amount">Total: $56 USD</span>
+    </div>
+    <button class="addButton">
+      Add To Cart
+    </button>
+  </div>
+
+  <script>
+    function selectBox(box, value) {
+      const radioButton = box.querySelector(`input[value="${value}"]`);
+      radioButton.checked = true;
+    }
+  </script>
+</body>
+</html>
